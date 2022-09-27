@@ -3,12 +3,12 @@ import citiesAPI from "./features/citiesAPI";
 import commentsAPI from "./features/commentAPI";
 import itinerariesAPI from "./features/itinerariesAPI";
 import activitiesAPI from "./features/activitiesAPI";
-import { authAPI } from "./features/authAPi";
-import userReducer from "./features/userSlice";
+import useReducer from "./features/userSlice";
+import {authAPI} from "./features/authAPi";
 
 export default configureStore ({
     reducer: {
-        user: userReducer,
+        user: useReducer,
         [citiesAPI.reducerPath] : citiesAPI.reducer,
         [itinerariesAPI.reducerPath] : itinerariesAPI.reducer,
         [commentsAPI.reducerPath] : commentsAPI.reducer,
