@@ -1,20 +1,44 @@
 import React from 'react';
-import { View, Text } from 'react-native'
+import { ImageBackground, StyleSheet, Text } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { StatusBar } from 'expo-status-bar';
+import { useFonts, KaushanScript_400Regular } from '@expo-google-fonts/kaushan-script'
+import Button from '../components/Button';
+
 
 const HomeScreen = () => {
+    let [fontsLoaded, error] = useFonts({KaushanScript_400Regular});
+    if(!fontsLoaded) {
+        return null
+    }
+    const image = require('../../assets//backgroundHero.png')
     return (  
-        <View>
-            <View>Home Screen</View>
-            <View>Home Screen 2</View>
-            <View>Home Screen 3</View>
-            <View>Home Screen 4</View>
-            <View>Home Screen 5</View>
-            <View>Home Screen 6</View>
-            <View>Home Screen 7</View>
-            <View>Home Screen 8 </View>
-            <View>Home Screen 9</View>
-        </View>
+        <ImageBackground source={image} resizeMode="cover" style={styles.container}>
+        <SafeAreaView style={styles.container}>
+            <Text style={styles.text}> MyTinerary </Text>
+            <Button title="TRAVEL"/>
+            <StatusBar style="auto"/>
+        </SafeAreaView>
+        </ImageBackground>
     );
 }
- 
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    text:{
+        height:140,
+        fontSize: 80,
+        fontFamily: 'KaushanScript_400Regular',
+        color: '#fff',
+        textShadowOffset:{height:7, width:2},
+        textShadowRadius:5,
+        textShadowColor: 'black'
+    },
+    btnSeeMore:{
+      color: '#c49'
+    }
+  });
 export default HomeScreen;
