@@ -1,7 +1,7 @@
 import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import HomeScreen from '../screens/HomeScreen';
-import CitiesScreen from '../Screens/Cities';
+import CitiesScreen from '../screens/Cities';
 
 const DrawerNav = createDrawerNavigator();
 
