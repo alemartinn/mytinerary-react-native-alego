@@ -6,9 +6,7 @@ const CitiesScreen = () => {
     const image = require('../../assets//backgroundHero.png')
     return (  
         <ImageBackground source={image} resizeMode="cover" style={styles.container}>
-            <View>
-                <CityCards/>
-            </View>
+            <CityCards/>
         </ImageBackground>
     );
 }
