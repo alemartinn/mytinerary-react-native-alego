@@ -1,7 +1,7 @@
-import {useState} from 'react';
 import { StyleSheet, View, Text, Alert } from 'react-native';
-import { TextInput } from 'react-native-gesture-handler';
 import { useSignUpMutation } from '../../features/authAPi';
+import { TextInput } from 'react-native-gesture-handler';
+import {useState} from 'react';
 import Button from './Button';
 
 const FormSignUp = (props) => {
@@ -12,7 +12,7 @@ const FormSignUp = (props) => {
     const [signUp] = useSignUpMutation()
 
     const handleSubmit = async () => {
-        //signUp(user)
+        signUp(user)
         Alert.alert(
             `Welcome to MyTineraries ${user.name}`,
             "Now you can sign in with your account.",
@@ -57,7 +57,7 @@ const FormSignUp = (props) => {
 }
 const styles = StyleSheet.create({
     mainContainer:{
-        paddingHorizontal: 30,
+        paddingHorizontal: 70,
         paddingTop: 10,
         marginBottom:100,
         marginTop: 70,
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
     },
     inputContainer:{
         marginTop:30,
-        width: 500
+        width: 400
     },
     labels:{
         fontSize:20,
