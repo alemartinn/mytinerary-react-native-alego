@@ -10,7 +10,7 @@ const DrawerNav = createDrawerNavigator();
 
 const Drawer = () => {
     return (  
-        <DrawerNav.Navigator>
+        <DrawerNav.Navigator initialRouteName='Home'>
             <DrawerNav.Screen name='Home' component={HomeScreen}/>
             <DrawerNav.Screen name='Cities' component={CitiesScreen}/>
             <DrawerNav.Screen name='MyTinerary' component={MyTineraryScreen}/>

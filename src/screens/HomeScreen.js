@@ -6,7 +6,7 @@ import { useFonts, KaushanScript_400Regular } from '@expo-google-fonts/kaushan-s
 import Button from '../components/Button';
 
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
     let [fontsLoaded, error] = useFonts({KaushanScript_400Regular});
     if(!fontsLoaded) {
         return null
@@ -16,7 +16,10 @@ const HomeScreen = () => {
         <ImageBackground source={image} resizeMode="cover" style={styles.container}>
         <SafeAreaView style={styles.container}>
             <Text style={styles.text}> MyTinerary </Text>
-            <Button title="TRAVEL"/>
+            <Button 
+            title="TRAVEL" 
+            onPress={() => navigation.navigate('Cities')}
+            />
             <StatusBar style="auto"/>
         </SafeAreaView>
         </ImageBackground>
