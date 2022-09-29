@@ -19,8 +19,8 @@ const CityCards = () => {
       );
 
     const renderItem = ({ item }) => {
-        const backgroundColor = item._id === selectedId ? "#ccc" : "#fff";
-        const color = item._id === selectedId ? 'white' : 'black';
+        const backgroundColor = item._id === selectedId ? "#ccc" : "#00000094";
+        const color = item._id === selectedId ? 'black' : 'white';
     
         return (
           <Item
@@ -37,7 +37,7 @@ const CityCards = () => {
           {
             cities
             ?
-            <View>
+            <View style={styles.container}>
               <TextInput
                 style={styles.inputSearch}
                 onChangeText={setTextInput}
@@ -48,6 +48,7 @@ const CityCards = () => {
               data={cities.response}
               renderItem={renderItem}
               keyExtractor={(item) => item._id}
+              style={styles.Flat}
               />
             </View> 
             :
@@ -59,32 +60,37 @@ const CityCards = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     marginTop: StatusBar.currentHeight || 0,
-    backgroundColor: 'c49',
+    width: '100%',
+    flex:1,
+    justifyContent:'flex-start'
   },
   inputSearch:{
-    borderColor: '#c49',
+    borderColor: '#000',
+    marginHorizontal:30,
     marginVertical: 10,
     borderWidth: 1,
+    paddingHorizontal:15,
     borderRadius: 30,
-    fontSize: 24,
+    fontSize: 25,
     width: '80%',
-    backgroundColor: '#fff'
+    backgroundColor: '#fff',
+    width: 300
   },
   item: {
-    padding: 20,
+    padding: 6,
     borderRadius: 30,
     marginVertical: 12,
-    marginHorizontal: 16,
-    alignItems: 'center'
+    marginHorizontal: 212,
+    alignItems: 'center',
+    width:245
   },
   cityName: {
     fontSize: 32,
   },
   cityImage: {
     height: 150,
-    width: 150,
+    width: 230,
     borderRadius: 30,
   }
 });
