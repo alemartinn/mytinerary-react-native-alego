@@ -63,7 +63,8 @@ const styles = StyleSheet.create({
     marginTop: StatusBar.currentHeight || 0,
     width: '100%',
     flex:1,
-    justifyContent:'flex-start'
+    justifyContent:'flex-start',
+    alignItems:'center'
   },
   inputSearch:{
     borderColor: '#000',
