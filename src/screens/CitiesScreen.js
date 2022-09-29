@@ -2,12 +2,12 @@ import React from 'react';
 import { ImageBackground, View, StyleSheet } from 'react-native'
 import CityCards from '../components/CityCards'
 
-const CitiesScreen = () => {
+const CitiesScreen = ({navigation}) => {
     const image = require('../../assets//backgroundHero.png')
     return (  
         <ImageBackground source={image} resizeMode="cover" style={styles.container}>
             <View>
-                <CityCards/>
+                <CityCards navigation={navigation}/>
             </View>
         </ImageBackground>
     );
