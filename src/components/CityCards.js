@@ -4,7 +4,7 @@ import { FlatList, TextInput } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useGetAllCitiesQuery } from '../../features/citiesAPI';
 
-const CityCards = () => {
+const CityCards = ({navigation}) => {
 
   const [textInput, setTextInput] = React.useState('');
   const [selectedId, setSelectedId] = useState(null);
@@ -25,7 +25,7 @@ const CityCards = () => {
         return (
           <Item
             item={item}
-            onPress={() => setSelectedId(item._id)}
+            onPress={() => navigation.navigate('Details', {itemId: item._id})}
             backgroundColor={{ backgroundColor }}
             textColor={{ color }}
           />
