@@ -1,14 +1,13 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { NavigationContainer, StackActions } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Provider } from 'react-redux';
+import { Provider,} from 'react-redux';
 import Drawer from './src/NavigationSrc/Drawer';
-import CitiesScreen from './src/screens/CitiesScreen';
 import DetailsScreen from './src/screens/DetailsScreen';
 import HomeScreen from './src/screens/HomeScreen';
 import store from './store';
 
 export default function App() {
-
   const Stack = createNativeStackNavigator();
 
   return (
