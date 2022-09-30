@@ -9,12 +9,17 @@ const Itineraries = ({itemId, useGetAllItinerariesQuery}) => {
     
     
     const Item = ({ item, backgroundColor, textColor }) => (
-        <TouchableOpacity style={[styles.item, backgroundColor]}>
-          <Text style={[styles.itiName, textColor]}>{item.name}</Text>
-          <Text style={[styles.userName, textColor]}>{item.user.name}</Text>
-          <Image style={styles.userPhoto} source={{uri: item.user.photo}}/>
+        <View style={[styles.item, backgroundColor]}>
+          <Text style={[styles.itineraryTitle, textColor]}>{item.name}</Text>
+          <View style={[styles.headerItinerary]}>
+            <View style={[styles.headerItineraryUser]}>
+              <Image style={styles.userPhoto} source={{uri: item.user.photo}}/>
+              <Text style={[styles.userName, textColor]}>{item.user.name}</Text>
+            </View>
+            <Text style={[styles.buttonDeleteItine]}>X</Text>
+          </View>
           <Activities itemId={item._id}/>
-        </TouchableOpacity>
+        </View>
       );
 
     const renderItem = ({ item }) => {
@@ -45,31 +50,52 @@ const Itineraries = ({itemId, useGetAllItinerariesQuery}) => {
     );
 }
 
-
 const styles = StyleSheet.create({
     container:{
         marginHorizontal: '5%',
-        borderWidth: 2,
-        borderColor: '#c49',
+        // borderWidth: 1,
+        // borderColor: '#c49',
     },
     item: {
-        padding: 20,
-        borderRadius: 30,
-        marginVertical: 12,
-        marginHorizontal: 16,
+      backgroundColor: "#00000094",
+      borderRadius: 30,
+        marginVertical: 15,
         alignItems: 'center',
-        marginHorizontal: '5%',
-        borderWidth: 2,
-        borderColor: '#c49',
+        paddingVertical: 15,
+    },
+    headerItinerary:{
+        // minWidth: 290,
+        // width: '90%',
+        // maxWidth: 500,
+        // borderWidth: 1,
+        width: 300,
+        height: 100,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+    },
+    headerItineraryUser:{
+      flexDirection: 'row',
+      alignItems: 'center',
+      
     },
     userName: {
-        fontSize: 22,
+        fontSize: 17,
+        color: '#fff',
+        paddingHorizontal: 10,
     },
     userPhoto: {
-        height: 70,
-        width: 70,
+        height: 50,
+        width: 50,
         borderRadius: 50,
-    }
+      },
+    itineraryTitle: {
+        fontSize: 22,
+        color: '#fff',
+    },
+    buttonDeleteItine: {
+      color: 'white'
+    },
   });
 
 export default Itineraries;
