@@ -4,20 +4,20 @@ import { ScrollView, TextInput } from 'react-native-gesture-handler';
 import {useState} from 'react';
 import Button from './Button';
 
-const FormSignUp = (props) => {
+const FormSignUp = ({role ,navigation}) => {
     const [user, setUser] = useState({
         name: "", lastName: "", email: "", password: "", 
-        country:"", role: props.role, from: "form"
+        country:"", role: role, from: "form"
     })
     const [signUp] = useSignUpMutation()
 
     const handleSubmit = async () => {
-        signUp(user)
+        // signUp(user)
         Alert.alert(
             `Welcome to MyTineraries ${user.name}`,
             "Now you can sign in with your account.",
             [
-              { text: "Thanks", onPress: () => console.log(user) }
+              { text: "Thanks",onPress: () => navigation.goBack()}
             ]
         );
     };
