@@ -32,8 +32,9 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
     },
     text:{
-        height:140,
-        fontSize: 80,
+        width: '100%',
+        height: 140,
+        fontSize: 70,
         fontFamily: 'KaushanScript_400Regular',
         color: '#fff',
         textShadowOffset:{height:7, width:2},
