@@ -15,8 +15,8 @@ function SignUpScreen() {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      paddingHorizontal: '8%',
-      paddingVertical: '8%'
+      paddingHorizontal: 30,
+      paddingVertical: 20
     },
 });
 
