@@ -1,6 +1,6 @@
 import { StyleSheet, View, Text, Alert } from 'react-native';
 import { useSignUpMutation } from '../../features/authAPi';
-import { TextInput } from 'react-native-gesture-handler';
+import { ScrollView, TextInput } from 'react-native-gesture-handler';
 import {useState} from 'react';
 import Button from './Button';
 
@@ -23,7 +23,7 @@ const FormSignUp = (props) => {
     };
 
   return (
-        <View style={styles.mainContainer}>
+        <ScrollView contentContainerStyle={styles.mainContainer}>
             <Text style={styles.mainHeader}>Register Form</Text>
             <View style={styles.inputContainer}>
                 <Text style={styles.labels}> Enter your name </Text>
@@ -52,15 +52,12 @@ const FormSignUp = (props) => {
             <View style={styles.btnForm}>
             <Button title="SEND" onPress={handleSubmit} />
             </View>
-        </View>
+        </ScrollView>
     )
 }
 const styles = StyleSheet.create({
     mainContainer:{
-        paddingHorizontal: 70,
         paddingTop: 10,
-        marginBottom:100,
-        marginTop: 70,
         backgroundColor: "#00000094",
         flex:1,
         alignItems:'center',
@@ -75,7 +72,6 @@ const styles = StyleSheet.create({
     },
     inputContainer:{
         marginTop:30,
-        width: 400
     },
     labels:{
         fontSize:20,
@@ -91,11 +87,12 @@ const styles = StyleSheet.create({
         paddingVertical: 7,
         borderRadius: 30,
         fontSize: 30,
-        color: "#fff"
+        color: "#fff",
+        width: 250,
     },
     btnForm: {
-        marginTop:60,
-        width:200,
+        paddingVertical: 50,
+        width:250,
     }
 })
 
