@@ -25,6 +25,7 @@ const Activities = ({itemId}) => {
                     data={dataActivities.response}
                     renderItem={renderItem}
                     keyExtractor={(item) => item._id}
+                    style={styles.container}
                 />
                 :
                 <Text>No activities</Text>
@@ -35,17 +36,25 @@ const Activities = ({itemId}) => {
 
 const styles = StyleSheet.create({
     containerActivity:{
-        borderWidth: 2,
-        borderColor: '#49e',
-        borderRadius: 20
+        flex: 1,
+        backgroundColor: '#00000087',
+        borderWidth: 1,
+        borderColor: '#000',
+        borderRadius: 20,
+        width: 250,
+        alignItems: 'center',
+        paddingVertical: 10,
+        marginVertical: 10,
     },
     nameActivity: {
         fontSize: 22,
-        color: '#c49',
+        color: '#fff',
+        textAlign: 'center'
     },
     imgActivity: {
-        width: 100,
-        height: 100,
+        borderRadius: 10,
+        width: 150,
+        height: 150,
     }
 }
 
