@@ -2,6 +2,7 @@ import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import CitiesScreen from '../screens/CitiesScreen';
 import HomeScreen from '../screens/HomeScreen';
+import SignInScreen from '../screens/SignInScreen';
 import MyTineraryScreen from '../screens/MyTineraryScreen';
 import SignUpScreen from '../screens/SignUpScreen';
 import NewCityScreen from '../screens/NewCityScreen';
@@ -13,6 +14,7 @@ const Drawer = () => {
         <DrawerNav.Navigator initialRouteName='Home'>
             <DrawerNav.Screen name='Home' component={HomeScreen}/>
             <DrawerNav.Screen name='Cities' component={CitiesScreen}/>
+            <DrawerNav.Screen name='Sign In' component={SignInScreen}/>
             <DrawerNav.Screen name='MyTinerary' component={MyTineraryScreen}/>
             <DrawerNav.Screen name='Sign Up' component={SignUpScreen}/>
             <DrawerNav.Screen name='New City' component={NewCityScreen}/>

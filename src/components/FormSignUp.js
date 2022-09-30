@@ -12,7 +12,7 @@ const FormSignUp = ({role ,navigation}) => {
     const [signUp] = useSignUpMutation()
 
     const handleSubmit = async () => {
-        // signUp(user)
+        signUp(user)
         Alert.alert(
             `Welcome to MyTineraries ${user.name}`,
             "Now you can sign in with your account.",
@@ -21,7 +21,6 @@ const FormSignUp = ({role ,navigation}) => {
             ]
         );
     };
-
   return (
         <View style={styles.mainContainer}>
             <Text style={styles.mainHeader}>Register Form</Text>
