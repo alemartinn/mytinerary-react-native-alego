@@ -4,6 +4,8 @@ import { useSignInMutation } from '../../features/authAPi';
 import { TextInput } from 'react-native-gesture-handler';
 import Button from '../components/Button';
 import {useState} from 'react';
+import { useDispatch } from 'react-redux';
+import {addUser} from '../../features/userSlice'
 
 function SignInScreen({navigation}) {
     const image = require('../../assets//backgroundHero.png')
@@ -12,17 +14,19 @@ function SignInScreen({navigation}) {
         email: "", password: "", from: "form"
     });
     const [userLog, setUserLog] = useState({})
-    const storeData = async (value) => {
+    const dispatch = useDispatch();
+
+    const storeData = async (user) => {
         try {
-          const jsonValue = JSON.stringify(value)
-          await AsyncStorage.setItem('user', jsonValue)
+            dispatch(addUser(user))
+            await AsyncStorage.setItem('user', JSON.stringify(user))
         } catch (error) {
-          console.log(error);
+            console.log(error);
         }
     }
     const getData = async () => {
         try {
-          await AsyncStorage.getItem('user').then(value => setUserLog(value))
+          await AsyncStorage.getItem('user')
         } catch(error) {
           console.log(error);
         }
@@ -36,14 +40,13 @@ function SignInScreen({navigation}) {
                 [{ text: "Ok"}]
             )
         } else {
-            storeData(data.response.user);
+            await storeData(data.response.user)
             await getData()
-            //AsyncStorage.clear()
             Alert.alert(
                 "You are logged in",
                 "Enjoy the trip",
                 [
-                  { text: "Ok", onPress: () => navigation.goBack()}
+                  { text: "Ok", onPress: () => navigation.navigate('Home')}
                 ]
             );
         }
