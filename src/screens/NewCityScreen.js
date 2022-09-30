@@ -1,6 +1,6 @@
 import { ImageBackground, View, Text, StyleSheet, Alert } from 'react-native';
 import { useAddNewCityMutation } from '../../features/citiesAPI';
-import { TextInput } from 'react-native-gesture-handler';
+import { ScrollView, TextInput } from 'react-native-gesture-handler';
 import Button from '../components/Button';
 import{ useState } from 'react'
 
@@ -29,46 +29,45 @@ function NewCityScreen() {
 
   return (
     <ImageBackground source={image} resizeMode="cover" style={styles.container}>
-    <View style={styles.mainContainer}>
-    <Text style={styles.mainHeader}> New City Form </Text>
-        <View style={styles.inputContainer}>
-            <Text style={styles.labels}> Enter city name </Text>
-            <TextInput style={styles.inputStyle} onChangeText={e => {setCity({...city,city:e })}}/>
-        </View>
-        <View style={styles.inputContainer}>
-            <Text style={styles.labels}> Enter the country of the city </Text>
-            <TextInput style={styles.inputStyle} onChangeText={e => {setCity({...city,country:e })}}/>
-        </View>
-        <View style={styles.inputContainer}>
-            <Text style={styles.labels}> Enter a photo </Text>
-            <TextInput style={styles.inputStyle} keyboardType='url' onChangeText={e => {setCity({...city,photo:e })}} />
-        </View>
-        <View style={styles.inputContainer}>
-            <Text style={styles.labels}> Enter population </Text>
-            <TextInput style={styles.inputStyle} keyboardType='numeric' onChangeText={e => {setCity({...city,population:e })}} />
-        </View>
-        <View style={styles.inputContainer}>
-            <Text style={styles.labels}> Enter foundation </Text>
-            <TextInput style={styles.inputStyle} keyboardType='numeric' onChangeText={e => {setCity({...city,foundation:e })}} />
-        </View>
-        <View style={styles.btnForm}>
-            <Button title="SEND" onPress={handleSubmit} />
-        </View>
-    </View>
+        <ScrollView>
+            <View style={styles.mainContainer}>
+                <Text style={styles.mainHeader}> New City Form </Text>
+                <View style={styles.inputContainer}>
+                    <Text style={styles.labels}> Enter city name </Text>
+                    <TextInput style={styles.inputStyle} onChangeText={e => {setCity({...city,city:e })}}/>
+                </View>
+                <View style={styles.inputContainer}>
+                    <Text style={styles.labels}> Enter the country of the city </Text>
+                    <TextInput style={styles.inputStyle} onChangeText={e => {setCity({...city,country:e })}}/>
+                </View>
+                <View style={styles.inputContainer}>
+                    <Text style={styles.labels}> Enter a photo </Text>
+                    <TextInput style={styles.inputStyle} keyboardType='url' onChangeText={e => {setCity({...city,photo:e })}} />
+                </View>
+                <View style={styles.inputContainer}>
+                    <Text style={styles.labels}> Enter population </Text>
+                    <TextInput style={styles.inputStyle} keyboardType='numeric' onChangeText={e => {setCity({...city,population:e })}} />
+                </View>
+                <View style={styles.inputContainer}>
+                    <Text style={styles.labels}> Enter foundation </Text>
+                    <TextInput style={styles.inputStyle} keyboardType='numeric' onChangeText={e => {setCity({...city,foundation:e })}} />
+                </View>
+                <View style={styles.btnForm}>
+                    <Button title="SEND" onPress={handleSubmit} />
+                </View>
+            </View>
+        </ScrollView>
     </ImageBackground>
   )
 }
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      alignItems: 'center',
-      justifyContent: 'center',
+      paddingHorizontal: 30,
+      paddingVertical: 20
     },
     mainContainer:{
-        paddingHorizontal: 70,
-        paddingTop: 30,
-        marginBottom:160,
-        marginTop: 70,
+        paddingTop: 10,
         backgroundColor: "#00000094",
         flex:1,
         alignItems:'center',
@@ -83,7 +82,6 @@ const styles = StyleSheet.create({
     },
     inputContainer:{
         marginTop:30,
-        width: 400
     },
     labels:{
         fontSize:20,
@@ -99,11 +97,12 @@ const styles = StyleSheet.create({
         paddingVertical: 7,
         borderRadius: 30,
         fontSize: 30,
-        color: "#fff"
+        color: "#fff",
+        width: 250,
     },
     btnForm: {
-        marginTop:60,
-        width:200,
+        paddingVertical: 50,
+        width:250,
     }
 });
 

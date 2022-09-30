@@ -23,7 +23,7 @@ const FormSignUp = (props) => {
     };
 
   return (
-        <ScrollView contentContainerStyle={styles.mainContainer}>
+        <View style={styles.mainContainer}>
             <Text style={styles.mainHeader}>Register Form</Text>
             <View style={styles.inputContainer}>
                 <Text style={styles.labels}> Enter your name </Text>
@@ -52,7 +52,7 @@ const FormSignUp = (props) => {
             <View style={styles.btnForm}>
             <Button title="SEND" onPress={handleSubmit} />
             </View>
-        </ScrollView>
+        </View>
     )
 }
 const styles = StyleSheet.create({
